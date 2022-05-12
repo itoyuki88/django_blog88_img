@@ -9,10 +9,7 @@
         <center>
             <h1>Hello World!</h1>
 
-            {% for post in posts %}
-                <p>title:{{post.title}}</p>
-                <p>content:{{post.content}}</p>
-            {% endfor %}
+            
             <br>
             <a href="{% url 'logout' %}"><button>logout</button></a>
             

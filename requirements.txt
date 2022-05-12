@@ -2,3 +2,6 @@ django
 whitenoise
 gunicorn
 django-heroku
+
+dj-database-url
+django-crispy-forms

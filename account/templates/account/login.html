@@ -1,0 +1,21 @@
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>blog-login</title>
+    </head>
+
+    <body>
+        <center>
+            <form method='POST' role="form">
+                {% csrf_token %}
+                {{form|crispy}}
+                <br>
+                <button type='submit'>login</button>
+            </form>
+        </center>
+    </body>
+
+</html>

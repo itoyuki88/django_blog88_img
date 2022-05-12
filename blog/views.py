@@ -5,7 +5,7 @@ from .models import Post
 
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/home.html'
+    template_name = 'blog/home2.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
 

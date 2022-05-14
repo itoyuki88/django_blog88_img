@@ -8,6 +8,6 @@ class PostForm(forms.ModelForm):
         labels = {'title':'title', 'content':'content', 'img':'img'}
 
         widgets = {
-            'content': forms.Textarea(attrs={'rows':3, 'cols':50, 'placeholder':'まほちだよーーー🐈'}),
-            'title': forms.Textarea(attrs={'rows':1, 'cols':50, 'placeholder':'まほち！愛してる！'})
+            'content': forms.Textarea(attrs={'rows':3, 'cols':45, 'placeholder':'まほちだよーーー🐈'}),
+            'title': forms.Textarea(attrs={'rows':1, 'cols':45, 'placeholder':'まほち！愛してる！'})
         }

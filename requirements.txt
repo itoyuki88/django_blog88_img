@@ -3,3 +3,5 @@ whitenoise
 gunicorn
 django-heroku
 django-crispy-forms
+django-cleanup
+Pillow

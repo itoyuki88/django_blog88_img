@@ -6,17 +6,17 @@ from .forms import PostForm
 from django.views.generic.edit import ModelFormMixin
 
 """
-class PostListView(ListView):
+class PostListView(LoginRequiredMixin, ListView):
     model = Post
     #template_name = 'blog/test.html'
     #context_object_name = 'post'
     ordering = ['-date_posted']
 """
 
-class PostDetailView(DetailView):
+class PostDetailView(LoginRequiredMixin, DetailView):
     model = Post
     
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     success_url = "/home"
     form_class = PostForm
@@ -26,7 +26,7 @@ class PostCreateView(CreateView):
         return super().form_valid(form)
 
 
-class PostUpdateView(UpdateView):
+class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
     fields = ['title','content', 'img']
     success_url = "/home"
@@ -36,12 +36,12 @@ class PostUpdateView(UpdateView):
         return super().form_valid(form)
 
 
-class PostDeleteView(DeleteView):
+class PostDeleteView(LoginRequiredMixin, DeleteView):
     model = Post
     success_url = "/home"
 
 
-class MixListView(ListView, ModelFormMixin):
+class MixListView(LoginRequiredMixin, ListView, ModelFormMixin):
     model = Post
     form_class = PostForm
     #fields = ['title', 'content', 'img']

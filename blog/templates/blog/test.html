@@ -1,0 +1,24 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>test</title>
+    </head>
+    <body>
+        <P>test</p>
+        {% for object in object_list %}
+            <p>{{object.title}}</p>
+            <p>{{object.author}}</p>
+            <p>{{object.content}}</p>
+            <p>{{object.img}}</p>
+        {% endfor %}
+        <br>
+        <form method="POST" role="form" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            {{form|crispy}}
+            <button type="sumbmit" name="">post</button>
+        </form>
+
+    </body>
+
+</html>

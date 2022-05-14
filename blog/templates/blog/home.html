@@ -3,7 +3,6 @@
 {% load crispy_forms_tags %}
 
 
-
 {% block content %}
 
 <!-- middle colulmn start -->
@@ -53,19 +52,11 @@
                 
                 <div class="w-full">
                     <div class="textarea px-2 mt-4">
-                    <form method="POST" role="form">
-                    {% csrf_token %}
-                    <textarea
-                        class="w-full h-10 focus:outline-none resize-none"
-                        placeholder="What's happening?"
-                        rows="2">
-                        
-                    </textarea>
-                    {{form}}
-                    <span class="w-20 inline-block">
-                        <button type="submit" class="p-3 py-2 twitter-bg text-white w-full rounded-full font-bold tracking-wide ">Tweet</button>
-                    </span>
-                    </form>
+                    <form method="POST" role="form" enctype="multipart/form-data" action="" >
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <!-- <textarea class="w-full h-10 focus:outline-none resize-none" placeholder="まほちまだimgは使えないよー🙇" rows="2"></textarea> -->
+                    
                     
                         
                     </div>
@@ -168,7 +159,7 @@
                             </div>
                         </div>
                     </div>
-                
+                    </form>
                 </div>
             </div>
         </div>
@@ -185,7 +176,7 @@
 
 
 
-                {% for post in posts %}
+                {% for object in object_list %}
                 <!-- tweet start -->
                 
                 <div
@@ -209,24 +200,27 @@
 
                                 <!-- tweet info bar start -->
                                 <div class="tweet-info-bar flex items-center">
-                                    <a href="#" class="hover:underline text-gray-900 font-bold text-base mr-1">{{post.author}}</a>
-                                    <span class="text-gray-600 text-base font-light tracking-wide">@{{post.author}}</span>
+                                    <a href="#" class="hover:underline text-gray-900 font-bold text-base mr-1">{{object.author}}</a>
+                                    <span class="text-gray-600 text-base font-light tracking-wide">@{{object.author}}</span>
                                     <span class="inline-block ml-1">·</span>
-                                    <span class="text-gray-600 text-base font-light tracking-wide inline-block ml-1">{{post.date_posted|date:"Y-m-d H:i:s"}}</span>
+                                    <span class="text-gray-600 text-base font-light tracking-wide inline-block ml-1">{{object.date_posted|date:"Y-m-d H:i:s"}}</span>
                                 </div>
                                 <!-- tweet info bar end -->
                                 <!-- tweet detail start -->
                                 <div class="tweet-detail">
-                                    <a href="{% url 'post-detail' post.id %}">
+                                    <a href="{% url 'post-detail' object.id %}">
                                     <p>
-                                        title : {{post.title}}
+                                        title : {{object.title}}
                                         <br>
-                                        {{post.content}}
+                                        {{object.content}}
+
                                         <a class="font-semibold" href="##MondayMotivation"></a>
                                     </p>
                                     </a>
-                                    
                                 </div>
+                                <!--アップロードした画像-->
+                                <a href="/media/{{object.img}}"><img src="/media/{{object.img}}"></a>
+                                
                                 <!-- tweet detail end -->
 
                                 <!-- tweet footer start -->

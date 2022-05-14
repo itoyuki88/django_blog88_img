@@ -12,7 +12,7 @@
                 <div class="flex">
                     <div class="w-1/2">
                         <div class="inner">
-                            <a href="" class="text-xl font-bold text-black">Detail</a>
+                            <a href="" class="text-xl font-bold text-black">New Tweet</a>
                         </div>
                     </div>
                     <div class="w-1/2">
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 
-                <form method="POST" role="form">
+                <form method="POST" role="form" enctype="multipart/form-data" action="">
                     {% csrf_token %}
                     <div class="w-full">
                         <div class="textarea px-2 mt-4">
